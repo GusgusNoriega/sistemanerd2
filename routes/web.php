@@ -32,4 +32,12 @@ Route::get('/settings', function () {
     return view('auth.settings');
 })->name('settings');
 
+Route::get('/settings2', function () {
+    return view('auth.settings2');
+})->name('settings2');
+
+Route::get('/register2', function () {
+    return view('auth.register2');
+})->name('register2');
+
 require __DIR__.'/auth.php';
