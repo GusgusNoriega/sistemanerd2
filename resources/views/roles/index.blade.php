@@ -31,6 +31,19 @@
         </button>
     </form>
 
+     <!-- Lista de roles con opción para eliminar -->
+     <div class="mt-6">
+        <h2 class="text-lg font-semibold mb-2">Roles List</h2>
+        <ul>
+            <template x-for="role in roles" :key="role.id">
+                <li class="flex items-center justify-between">
+                    <span x-text="role.name"></span>
+                    <button @click="deleteRole(role.id)" class="text-red-500 hover:text-red-700">Delete</button>
+                </li>
+            </template>
+        </ul>
+    </div>
+
     <!-- Formulario para agregar permisos -->
     <form @submit.prevent="createPermission()" class="mb-6">
         <label for="permissionName" class="block font-semibold mb-2">Permission Name:</label>
@@ -47,8 +60,22 @@
         </button>
     </form>
 
+    <!-- Lista de permisos con opción para eliminar -->
+    <div class="mt-6">
+        <h2 class="text-lg font-semibold mb-2">Permissions List</h2>
+        <ul>
+            <template x-for="permission in allPermissions" :key="permission.id">
+                <li class="flex items-center justify-between">
+                    <span x-text="permission.name"></span>
+                    <button @click="deletePermission(permission.id)" class="text-red-500 hover:text-red-700">Delete</button>
+                </li>
+            </template>
+        </ul>
+    </div>
+
     <!-- Seleccionar un rol para gestionar sus permisos -->
     <div>
+        <h2 class="block font-semibold mb-2">Gestionar permisos asignados a los roles</h2>
         <label for="roles" class="block font-semibold mb-2">Select Role:</label>
         <select 
             id="roles" 
@@ -83,31 +110,7 @@
         </div>
     </div>
 
-    <!-- Lista de roles con opción para eliminar -->
-    <div class="mt-6">
-        <h2 class="text-lg font-semibold mb-2">Roles List</h2>
-        <ul>
-            <template x-for="role in roles" :key="role.id">
-                <li class="flex items-center justify-between">
-                    <span x-text="role.name"></span>
-                    <button @click="deleteRole(role.id)" class="text-red-500 hover:text-red-700">Delete</button>
-                </li>
-            </template>
-        </ul>
-    </div>
-
-    <!-- Lista de permisos con opción para eliminar -->
-    <div class="mt-6">
-        <h2 class="text-lg font-semibold mb-2">Permissions List</h2>
-        <ul>
-            <template x-for="permission in allPermissions" :key="permission.id">
-                <li class="flex items-center justify-between">
-                    <span x-text="permission.name"></span>
-                    <button @click="deletePermission(permission.id)" class="text-red-500 hover:text-red-700">Delete</button>
-                </li>
-            </template>
-        </ul>
-    </div>
+    
 </div>
 
 <script>
