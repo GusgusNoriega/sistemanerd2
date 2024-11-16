@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\RolePermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,25 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+    // Roles
+    Route::get('/roles', [RolePermissionController::class, 'getRoles']);
+    Route::post('/roles', [RolePermissionController::class, 'createRole']);
+    Route::get('/roles/{id}', [RolePermissionController::class, 'getRole']);
+    Route::put('/roles/{id}', [RolePermissionController::class, 'updateRole']);
+    Route::delete('/roles/{id}', [RolePermissionController::class, 'deleteRole']);
+
+    // Permisos
+    Route::get('/permissions', [RolePermissionController::class, 'getPermissions']);
+    Route::post('/permissions', [RolePermissionController::class, 'createPermission']);
+    Route::put('/permissions/{id}', [RolePermissionController::class, 'updatePermission']);
+    Route::delete('/permissions/{id}', [RolePermissionController::class, 'deletePermission']);
+
+    // Asignar permisos a roles
+    Route::post('/roles/{id}/permissions', [RolePermissionController::class, 'assignPermissionToRole']);
+    
+   
+   
+
+    
