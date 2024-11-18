@@ -17,7 +17,7 @@
 <body class="bg-gray-100 text-gray-900">
 
     <!-- Main Layout Wrapper -->
-    <div class="min-h-screen flex flex-col">
+    <div class="min-h-screen flex flex-col min-h-screen">
         
         <!-- Header -->
         <header class="bg-blue-600 text-white p-4">
@@ -25,7 +25,7 @@
         </header>
         
         <!-- Main Content Wrapper -->
-        <div class="flex flex-1">
+        <div class="flex flex-1 h-full">
             
             <!-- Sidebar -->
             
@@ -33,7 +33,7 @@
         
             
             <!-- Main Content Area -->
-            <main class="flex-1 p-6">
+            <main class="flex-1 p-6 h-full">
                 @yield('content')
             </main>
             
