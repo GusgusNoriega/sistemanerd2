@@ -20,29 +20,37 @@
     <div class="min-h-screen flex flex-col min-h-screen">
         
         <!-- Header -->
-        <header class="bg-blue-600 text-white p-4">
+        <header>
             @yield('header') <!-- Aquí se pueden incluir componentes -->
         </header>
         
         <!-- Main Content Wrapper -->
+
         <div class="flex flex-1 h-full">
-            
-            <!-- Sidebar -->
-            
+
+        <div class="flex overflow-hidden bg-white pt-16 w-full">
+ 
                 @yield('sidebar') <!-- Aquí se pueden incluir componentes -->
-        
-            
-            <!-- Main Content Area -->
-            <main class="flex-1 p-6 h-full">
-                @yield('content')
-            </main>
-            
+
+            <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
+                <main class="p-6">
+                   
+                     @yield('content')
+                    
+                </main>
+
+                <!-- Footer -->
+                    <footer class="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4">
+                        @yield('footer') <!-- Aquí se pueden incluir componentes -->
+                    </footer>
+                    <p class="text-center text-sm text-gray-500 my-10">
+                        &copy; 2019-2021 <a href="#" class="hover:underline" target="_blank">Themesberg</a>. All rights reserved.
+                    </p>
+            </div>
+
         </div>
 
-        <!-- Footer -->
-        <footer class="bg-gray-700 text-white p-4">
-            @yield('footer') <!-- Aquí se pueden incluir componentes -->
-        </footer>
+      
     </div>
 
 </body>
